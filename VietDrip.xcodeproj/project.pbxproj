@@ -153,8 +153,6 @@
 			children = (
 				112DC73B28191F5C00E1FA66 /* EnvironmentObject */,
 				1155EC0D2817DB770020F421 /* View */,
-				1155EC0A2817D8690020F421 /* Constant */,
-				1155EC072817D2E80020F421 /* Model */,
 				1155EBE92817D20E0020F421 /* VietDripApp.swift */,
 				1155EBED2817D20E0020F421 /* NotificationController.swift */,
 				1155EBEF2817D20E0020F421 /* NotificationView.swift */,
@@ -173,20 +171,6 @@
 				1155EBF62817D20E0020F421 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1155EC072817D2E80020F421 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1155EC0A2817D8690020F421 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		1155EC0D2817DB770020F421 /* View */ = {
