@@ -11,7 +11,7 @@ import SwiftUI
 struct VietDripApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomizeCupView()
                 .environmentObject(AppState())
         }
         

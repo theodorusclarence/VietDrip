@@ -17,7 +17,7 @@
 		1155EBDF2817D20E0020F421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1155EBDE2817D20E0020F421 /* Assets.xcassets */; };
 		1155EBE52817D20E0020F421 /* VietDrip WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1155EBE42817D20E0020F421 /* VietDrip WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1155EBEA2817D20E0020F421 /* VietDripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBE92817D20E0020F421 /* VietDripApp.swift */; };
-		1155EBEC2817D20E0020F421 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBEB2817D20E0020F421 /* ContentView.swift */; };
+		1155EBEC2817D20E0020F421 /* CustomizeCupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBEB2817D20E0020F421 /* CustomizeCupView.swift */; };
 		1155EBEE2817D20E0020F421 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBED2817D20E0020F421 /* NotificationController.swift */; };
 		1155EBF02817D20E0020F421 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBEF2817D20E0020F421 /* NotificationView.swift */; };
 		1155EBF22817D20E0020F421 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155EBF12817D20E0020F421 /* ComplicationController.swift */; };
@@ -80,7 +80,7 @@
 		1155EBDE2817D20E0020F421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1155EBE42817D20E0020F421 /* VietDrip WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "VietDrip WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1155EBE92817D20E0020F421 /* VietDripApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietDripApp.swift; sourceTree = "<group>"; };
-		1155EBEB2817D20E0020F421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1155EBEB2817D20E0020F421 /* CustomizeCupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCupView.swift; sourceTree = "<group>"; };
 		1155EBED2817D20E0020F421 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		1155EBEF2817D20E0020F421 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		1155EBF12817D20E0020F421 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				112DC7382817EF2A00E1FA66 /* Step */,
-				1155EBEB2817D20E0020F421 /* ContentView.swift */,
+				1155EBEB2817D20E0020F421 /* CustomizeCupView.swift */,
 				112DC7392817F3EC00E1FA66 /* BrewingView.swift */,
 				1155EC102817DBE00020F421 /* IngredientsView.swift */,
 			);
@@ -331,7 +331,7 @@
 				1108882E28193497001CD721 /* StepWithButton.swift in Sources */,
 				112DC73F28191FDB00E1FA66 /* AppState.swift in Sources */,
 				1108882C28193045001CD721 /* AddCoffeeGroundsTabView.swift in Sources */,
-				1155EBEC2817D20E0020F421 /* ContentView.swift in Sources */,
+				1155EBEC2817D20E0020F421 /* CustomizeCupView.swift in Sources */,
 				11088832281971DB001CD721 /* RestOfWaterView.swift in Sources */,
 				11088830281940DC001CD721 /* BloomTimerView.swift in Sources */,
 				1155EC112817DBE00020F421 /* IngredientsView.swift in Sources */,

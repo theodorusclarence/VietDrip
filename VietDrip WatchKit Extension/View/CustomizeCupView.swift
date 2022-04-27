@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CustomizeCupView: View {
     @EnvironmentObject var appState: AppState
 
     
@@ -57,6 +57,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(AppState())
+        CustomizeCupView().environmentObject(AppState())
     }
 }
