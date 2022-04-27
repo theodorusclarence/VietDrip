@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    var dripperSize: DripperSize
-    var ratio: Ratio
-    
+    @EnvironmentObject var appState: AppState
     @State private var coffeeGrounds: Int = 0
     
     
@@ -19,11 +17,10 @@ struct IngredientsView: View {
             
             Text("Ingredients").bold()
             
-            
             ScrollView {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("\(coffeeGrounds)gr")
+                        Text("\(appState.coffeeGrounds)gr")
                             .font(.system(size: 17))
                             .frame(width: 55, alignment: .leading)
                         VStack (alignment: .leading) {
@@ -34,7 +31,7 @@ struct IngredientsView: View {
                         }
                     }
                     HStack {
-                        Text("\(dripperSize.rawValue)mL")
+                        Text("\(appState.dripperSize.rawValue)mL")
                             .font(.system(size: 17))
                             .frame(width: 55, alignment: .leading)
                         VStack (alignment: .leading) {
@@ -47,19 +44,16 @@ struct IngredientsView: View {
                 } //:VStack
             } //:ScrollView
             
-            NavigationLink(destinationName: "dummy") {
+            NavigationLink(destination: BrewingView()) {
                 Text("Brew Now").foregroundColor(.orange)
             }.buttonStyle(.bordered)
             
         } //:VStack
-        .onAppear {
-            coffeeGrounds = dripperSize.rawValue / ratio.rawValue
-        }
     }
 }
 
 struct IngredientsView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientsView(dripperSize: .large, ratio: .medium)
+        IngredientsView().environmentObject(AppState())
     }
 }
