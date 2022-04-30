@@ -12,9 +12,9 @@ struct StepWithButton<Content: View>: View {
     var tab: Int
     var withoutButton = false
     var content: () -> Content
-    
+
     @EnvironmentObject var appState: AppState
-    
+
     var body: some View {
         VStack {
             Text("\(tab) / \(BrewingStep.max.rawValue)")
@@ -26,9 +26,9 @@ struct StepWithButton<Content: View>: View {
                     maxHeight: .infinity,
                     alignment: .center
                 )
-            
+
             if !withoutButton {
-                if (selectedTab != BrewingStep.max.rawValue) {
+                if selectedTab != BrewingStep.max.rawValue {
                     Button("Next") {
                         withAnimation {
                             self.selectedTab = tab + 1

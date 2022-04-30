@@ -14,7 +14,7 @@ struct VietDripApp: App {
             CustomizeCupView()
                 .environmentObject(AppState())
         }
-        
+
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

@@ -10,11 +10,11 @@ import SwiftUI
 struct IngredientsView: View {
     @EnvironmentObject var appState: AppState
     @State private var coffeeGrounds: Int = 0
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Ingredients").bold()
-            
+
             ScrollView {
                 VStack(alignment: .leading) {
                     HStack {
@@ -41,7 +41,7 @@ struct IngredientsView: View {
                     }
                 } //: VStack
             } //: ScrollView
-            
+
             NavigationLink(destination: BrewingView()) {
                 Text("Brew Now").foregroundColor(.orange)
             }.buttonStyle(.bordered)

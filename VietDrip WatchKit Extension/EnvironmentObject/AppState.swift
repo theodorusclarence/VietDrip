@@ -23,10 +23,10 @@ enum Ratio: Int, CaseIterable {
 class AppState: ObservableObject {
     @Published var dripperSize: DripperSize = .medium
     @Published var ratio: Ratio = .medium
-    
+
     var coffeeGrounds: Int {
         return dripperSize.rawValue / ratio.rawValue
     }
-    
+
     @Published var rootViewId = UUID()
 }

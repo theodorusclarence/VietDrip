@@ -10,12 +10,11 @@ import SwiftUI
 struct CustomizeCupView: View {
     @EnvironmentObject var appState: AppState
 
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Text("Customize your cup").bold().font(.system(size: 16))
-                
+
                 List {
                     Picker("Dripper size", selection: $appState.dripperSize) {
                         HStack(alignment: .lastTextBaseline) {
@@ -30,8 +29,8 @@ struct CustomizeCupView: View {
                             Text("Large")
                             Text("(150mL)").font(.system(size: 12))
                         }.tag(DripperSize.large)
-                    } //:Picker DripperSize
-                    
+                    } //: Picker DripperSize
+
                     Picker("Coffee Ratio", selection: $appState.ratio) {
                         HStack(alignment: .lastTextBaseline) {
                             Text("Light")
@@ -45,14 +44,14 @@ struct CustomizeCupView: View {
                             Text("Strong")
                             Text("(1:10)").font(.system(size: 12))
                         }.tag(Ratio.strong)
-                    } //:Picker Ratio
-                } //:List
-                
-                NavigationLink(destination: IngredientsView(), label: {Text("Continue").foregroundColor(.orange)})
+                    } //: Picker Ratio
+                } //: List
+
+                NavigationLink(destination: IngredientsView(), label: { Text("Continue").foregroundColor(.orange) })
             }
-        } //:VStack
+        } //: VStack
         .id(appState.rootViewId)
-    } //:NavigationView
+    } //: NavigationView
 }
 
 struct ContentView_Previews: PreviewProvider {
