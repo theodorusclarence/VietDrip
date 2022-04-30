@@ -19,6 +19,8 @@ struct BloomTimerView: View {
     
     @State private var brewTimer: Timer?
     
+    
+    
     var body: some View {
         VStack (spacing: 10) {
             VStack (spacing: 8) {
@@ -31,7 +33,7 @@ struct BloomTimerView: View {
                     Text("seconds remaining")
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
-                }
+                } //:VStack
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity,
@@ -56,7 +58,7 @@ struct BloomTimerView: View {
                 brewTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                     if self.time > 0 {
                         self.time -= 1
-                    } else if (self.time > -3) {
+                    } else if (self.time > -5) {
                         WKInterfaceDevice.current().play(.success)
                         asyncState = .finish
                         self.time -= 1
@@ -80,9 +82,7 @@ struct BloomTimerView: View {
                     }
                 }.foregroundColor(.orange)
             }
-        }
-        
-        
+        } //:VStack
     }
 }
 

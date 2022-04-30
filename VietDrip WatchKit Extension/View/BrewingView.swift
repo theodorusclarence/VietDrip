@@ -50,7 +50,9 @@ struct BrewingView: View {
                             .bold()
                     }.font(.system(size: 14))
                 }.tag(5)
-            }
+            } //:TabView
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            
     }
 }
 
