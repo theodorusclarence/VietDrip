@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+// import UIKit
 
 struct CustomizeCupView: View {
     @EnvironmentObject var appState: AppState
+
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Text("Customize your cup").bold().font(.system(size: 16))
+                    .accessibilityLabel("Customize your vietnam drip coffee")
 
                 List {
                     Picker("Dripper size", selection: $appState.dripperSize) {
@@ -30,6 +34,7 @@ struct CustomizeCupView: View {
                             Text("(150mL)").font(.system(size: 12))
                         }.tag(DripperSize.large)
                     } //: Picker DripperSize
+                    .accessibilityLabel("Select your dripper size, currently picked:  \(appState.dripperSize.rawValue)mL")
 
                     Picker("Coffee Ratio", selection: $appState.ratio) {
                         HStack(alignment: .lastTextBaseline) {
@@ -45,6 +50,7 @@ struct CustomizeCupView: View {
                             Text("(1:10)").font(.system(size: 12))
                         }.tag(Ratio.strong)
                     } //: Picker Ratio
+                    .accessibilityLabel("Select your coffee ratio, currently picked:  1:\(appState.ratio.rawValue)")
                 } //: List
 
                 NavigationLink(destination: IngredientsView(), label: { Text("Continue").foregroundColor(.orange) })

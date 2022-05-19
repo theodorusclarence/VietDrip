@@ -13,10 +13,14 @@ enum AsyncState {
 
 struct BloomTimerView: View {
     @State private var time = 20
+    @State private var notificationDate = Date()
     @State private var asyncState = AsyncState.running
     @Binding var selectedTab: Int
 
     @State private var brewTimer: Timer?
+    @State private var session: WKExtendedRuntimeSession?
+
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     var body: some View {
         VStack(spacing: 10) {
@@ -51,6 +55,8 @@ struct BloomTimerView: View {
                 alignment: .center
             )
             .onAppear {
+                session = WKExtendedRuntimeSession()
+                session?.start()
                 brewTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                     if self.time > 0 {
                         self.time -= 1
@@ -63,6 +69,7 @@ struct BloomTimerView: View {
             }
             .onDisappear {
                 brewTimer?.invalidate()
+                session?.invalidate()
                 time = 20
             }
 
@@ -71,12 +78,21 @@ struct BloomTimerView: View {
                     .disabled(true)
             } else if asyncState == .finish {
                 Button("Next") {
-                    withAnimation {
+                    withAnimation(reduceMotion ? nil : .easeInOut) {
                         selectedTab = selectedTab + 1
                     }
                 }.foregroundColor(.orange)
             }
         } //: VStack
+//        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationWillResignActiveNotification)) { _ in
+//            // Moving to the background
+//            notificationDate = Date()
+//        }
+//        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
+//            // Moving to the foreground
+//            let deltaTime: Int = .init(Date().timeIntervalSince(notificationDate))
+//            time -= deltaTime
+//        }
     }
 }
 

@@ -11,6 +11,8 @@ struct IngredientsView: View {
     @EnvironmentObject var appState: AppState
     @State private var coffeeGrounds: Int = 0
 
+    @State private var showingModalView = false
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Ingredients").bold()
@@ -21,6 +23,7 @@ struct IngredientsView: View {
                         Text("\(appState.coffeeGrounds)gr")
                             .font(.system(size: 17))
                             .frame(width: 55, alignment: .leading)
+                            .accessibilityLabel("10 grams")
                         VStack(alignment: .leading) {
                             Text("Coffee")
                             Text("Medium grind")
@@ -45,6 +48,15 @@ struct IngredientsView: View {
             NavigationLink(destination: BrewingView()) {
                 Text("Brew Now").foregroundColor(.orange)
             }.buttonStyle(.bordered)
+            
+//            Button(action: {
+//                self.showingModalView.toggle()
+//            }) {
+//                Text("Brew Now").foregroundColor(.orange)
+//            }.sheet(isPresented: $showingModalView) {
+//                BrewingView()
+//
+//            }
         } //: VStack
     }
 }

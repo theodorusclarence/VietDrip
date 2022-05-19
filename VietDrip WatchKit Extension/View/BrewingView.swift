@@ -13,6 +13,9 @@ enum BrewingStep: Int {
 
 struct BrewingView: View {
     @State private var selectedTab = 1
+    @EnvironmentObject var appState: AppState
+
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -52,6 +55,21 @@ struct BrewingView: View {
             }.tag(5)
         } //: TabView
         .tabViewStyle(.page(indexDisplayMode: .never))
+        .navigationBarBackButtonHidden(true)
+        .toolbar(content: {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    withAnimation(reduceMotion ? nil : .easeInOut) {
+                        appState.rootViewId = UUID()
+                    }
+                } label: {
+                    Text("Cancel")
+                        .font(.system(size: 15))
+                        .foregroundColor(.secondary)
+                        .padding()
+                }
+            }
+        })
     }
 }
 

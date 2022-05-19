@@ -15,11 +15,14 @@ struct StepWithButton<Content: View>: View {
 
     @EnvironmentObject var appState: AppState
 
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
+
     var body: some View {
         VStack {
             Text("\(tab) / \(BrewingStep.max.rawValue)")
                 .font(.system(size: 12))
                 .foregroundColor(.secondary)
+                .accessibilityLabel("Step \(tab) out of \(BrewingStep.max.rawValue)")
             VStack(content: content)
                 .frame(
                     maxWidth: .infinity,
@@ -30,13 +33,13 @@ struct StepWithButton<Content: View>: View {
             if !withoutButton {
                 if selectedTab != BrewingStep.max.rawValue {
                     Button("Next") {
-                        withAnimation {
+                        withAnimation(reduceMotion ? nil : .easeInOut) {
                             self.selectedTab = tab + 1
                         }
                     }
                 } else {
                     Button("Finish") {
-                        withAnimation {
+                        withAnimation(reduceMotion ? nil : .easeInOut) {
                             appState.rootViewId = UUID()
                         }
                     }.foregroundColor(.orange)
